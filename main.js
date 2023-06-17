@@ -1,23 +1,23 @@
-let NewTaskQuestion = prompt("タスクを入力してください");
-let TaskNumber = 0;
-let TaskList = [];
-let TaskGenre = [];
+let newTaskQuestion = prompt("タスクを入力してください");
+const taskLists = [];
 
-function NewTaskList(tasknumber, taskname, taskGenre) {
-  let Newtasknumber = tasknumber;
-  let Newtaskname = taskname;
-  let Newtaskgenre = taskGenre;
-  TaskList[Newtasknumber] = Newtaskname;
-  TaskGenre[Newtasknumber] = Newtaskgenre;
+
+function makeNewTaskList(taskname, taskGenre) {
+  let newTaskName = taskname;
+  let newTaskGenre = taskGenre;
+  let newTask = {
+    "name": newTaskName,
+    "genre": newTaskGenre
+  };
+  taskLists.unshift(newTask);
   console.log('====================\n現在持っているタスク一覧\n====================');
-  for (let i = 0; i < TaskList.length; i++) {
-    console.log(i + ':[内容]' + TaskList[i] + '、[ジャンル]' + TaskGenre[i]);
-  }
+  taskLists.forEach(function(element, index, array) {
+    console.log(index + ':[内容]' + element.name + '、[ジャンル]' + element.genre);
+  });
 }
 
-while (NewTaskQuestion !== null) {
-  let NewtaskGenre = prompt("ジャンルを入力してください");
-  NewTaskList(TaskNumber, NewTaskQuestion, NewtaskGenre);
-  TaskNumber += 1;
-  NewTaskQuestion = prompt("タスクを入力してください");
+while (newTaskQuestion !== null) {
+  let newtaskGenre = prompt("ジャンルを入力してください");
+  makeNewTaskList(newTaskQuestion, newtaskGenre);
+  newTaskQuestion = prompt("タスクを入力してください");
 }
