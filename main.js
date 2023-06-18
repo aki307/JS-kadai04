@@ -1,13 +1,12 @@
 let newTaskQuestion = prompt("タスクを入力してください");
 const taskLists = [];
 
-
 function makeNewTaskList(taskname, taskGenre) {
-  let newTaskName = taskname;
-  let newTaskGenre = taskGenre;
-  let newTask = {
-    "name": newTaskName,
-    "genre": newTaskGenre
+  const newTaskName = taskname;
+  const newTaskGenre = taskGenre;
+  const newTask = {
+    name: newTaskName,
+    genre: newTaskGenre
   };
   taskLists.unshift(newTask);
   console.log('====================\n現在持っているタスク一覧\n====================');
